@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Multimídia</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="nav-left">
+      <i class="fa-solid fa-bars"></i>
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </div>
+    <div class="nav-center">
+      <i class="fa-solid fa-clapperboard"></i>
+      <i class="fa-solid fa-heart"></i>
+      <i class="fa-solid fa-music"></i>
+    </div>
+    <div class="nav-right">
+      <i class="fa-solid fa-user"></i>
+    </div>
+  </header>
+
+  <!-- CARROSSEL DESTAQUE -->
+  <section class="highlight">
+    <button class="arrow left"><i class="fa-solid fa-arrow-left"></i></button>
+
+    <div class="highlight-content">
+      <img id="carousel-img" src="" alt="Imagem do destaque">
+      <div class="highlight-info">
+        <h2 id="carousel-title"></h2>
+        <p id="carousel-desc"></p>
+      </div>
+    </div>
+
+    <button class="arrow right"><i class="fa-solid fa-arrow-right"></i></button>
+  </section>
+
+    <main id="categories-container"></main>
+
+  <footer>
+    <p>© 2025 Multimídia - Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
