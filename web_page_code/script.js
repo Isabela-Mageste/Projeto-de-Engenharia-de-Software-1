@@ -686,35 +686,32 @@ modal.addEventListener("click", e => {
 const menuToggle = document.getElementById("menu-toggle");
 const sidebar = document.getElementById("sidebar");
 const overlay = document.getElementById("overlay");
-const themeBtn = document.getElementById("toggle-theme");
+const darkModeToggle = document.getElementById("darkModeToggle");
 
-// Abrir sidebar
+// abrir e fechar sidebar
 menuToggle.addEventListener("click", () => {
   sidebar.classList.toggle("active");
   overlay.classList.toggle("active");
   menuToggle.classList.toggle("active");
 });
 
-// Fechar ao clicar fora
+// fechar ao clicar fora
 overlay.addEventListener("click", () => {
   sidebar.classList.remove("active");
   overlay.classList.remove("active");
   menuToggle.classList.remove("active");
 });
 
-// Alternar tema
-themeBtn.addEventListener("click", () => {
-  document.body.classList.toggle("dark-mode");
-  const isDark = document.body.classList.contains("dark-mode");
-  themeBtn.textContent = isDark ? "☀️ Modo Claro" : "🌙 Modo Escuro";
+// alternar modo escuro
+darkModeToggle.addEventListener("change", () => {
+  const isDark = darkModeToggle.checked;
+  document.body.classList.toggle("dark-mode", isDark);
   localStorage.setItem("dark-mode", isDark);
 });
 
-// Carregar preferência salva
+// carregar tema salvo
 window.addEventListener("DOMContentLoaded", () => {
   const savedTheme = localStorage.getItem("dark-mode") === "true";
-  if (savedTheme) {
-    document.body.classList.add("dark-mode");
-    themeBtn.textContent = "☀️ Modo Claro";
-  }
+  document.body.classList.toggle("dark-mode", savedTheme);
+  darkModeToggle.checked = savedTheme;
 });

@@ -28,12 +28,28 @@
 
 <!-- SIDEBAR -->
 <aside class="sidebar" id="sidebar">
-  <h2>Configurações</h2>
-  <button id="toggle-theme" class="theme-btn">🌙 Modo Escuro</button>
+  <nav class="sidebar-menu">
+    <a href="#" class="sidebar-item"><i class="fa-solid fa-house"></i> Início</a>
+    <a href="#" class="sidebar-item"><i class="fa-solid fa-users"></i> Social</a>
+    <a href="#" class="sidebar-item"><i class="fa-solid fa-gamepad"></i> Games</a>
+    <a href="#" class="sidebar-item"><i class="fa-solid fa-user"></i> Perfil</a>
+  </nav>
+
+  <div class="sidebar-divider"></div>
+
+  <div class="theme-switch">
+    <label for="darkModeToggle">Modo Escuro</label>
+    <input id="darkModeToggle" class="l" type="checkbox" />
+  </div>
+
+  <div class="avatar-box">
+    <!-- Futuro avatar do usuário -->
+  </div>
 </aside>
 
 <!-- Fundo escuro para fechar a sidebar -->
 <div class="overlay" id="overlay"></div>
+
 
   <!-- CARROSSEL DESTAQUE -->
   <section class="highlight">
