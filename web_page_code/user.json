@@ -1,0 +1,11 @@
+{
+  "nome": "Joaquim Almeida",
+  "cargo": "Cinéfilo e Desenvolvedor Web",
+  "descricao": "Apaixonado por filmes, tecnologia e boas histórias. Acredito que o cinema é a ponte perfeita entre arte e emoção.",
+  "foto": "https://i.pinimg.com/736x/72/52/44/725244777847e370b3d9e81ae5bb26ed.jpg",
+  "estetica_mes": "https://i.pinimg.com/736x/e2/54/f8/e254f884453e973385b7aa6a03533285.jpg",
+  "filmes_recentes": [
+    "https://i.pinimg.com/736x/39/9b/83/399b83aa72375e3e8aad65b57656f646.jpg",
+    "https://i.pinimg.com/736x/93/c4/48/93c4481951dfb924ae8881e681f4a28b.jpg"
+  ]
+}

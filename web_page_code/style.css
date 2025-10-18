@@ -1,7 +1,7 @@
 :root {
   --bg: #f8eedd;
-  --primary: #3a2142;
-  --accent: #f28b47;
+  --primary: #3b3b3b;
+  --accent: #df834a;
 }
 
 * {
@@ -319,8 +319,8 @@ body {
 /* === MODO ESCURO === */
 body.dark-mode {
   --bg: #121212;
-  --primary: #363636;
-  --accent: #bb86fc;
+  --primary: #3b3b3b;
+  --accent: #df834a;
   background-color: var(--bg);
   color: var(--primary);
 }
@@ -489,6 +489,368 @@ body.dark-mode .theme-btn {
   align-self: center;
   margin-top: auto;
   border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+/* ===========================
+   LAYOUT DO PERFIL (TRÊS COLUNAS)
+   =========================== */
+
+/* Ajustes de cores (mantém compatibilidade com seu tema original) */
+:root {
+  --bg: #f6ecd9;            /* fundo claro da página */
+  --card: #3b3b3b;          /* cor escura principal dos cards */
+  --accent: #df834a;        /* laranja / acento */
+  --card-2: #2f2f2f;        /* variação para blocos internos */
+  --muted: #cfcfcf;         /* texto menos contrastado */
+}
+
+/* corpo (respeitar seu tema já existente) */
+body {
+  background: var(--bg);
+  color: #fff;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* container principal do perfil */
+.profile-root {
+  max-width: 1200px;
+  margin: 36px auto;
+  padding: 0 20px 60px;
+}
+
+/* grid de 3 colunas igual ao mockup */
+.profile-grid {
+  display: grid;
+  grid-template-columns: 360px 1fr 320px;
+  gap: 24px;
+  align-items: start;
+}
+
+/* cada coluna tem um card com cantos arredondados grandes e fundo escuro */
+.col-card {
+  background: var(--card);
+  border-radius: 22px;
+  padding: 28px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  min-height: 200px;
+}
+
+/* === COLUNA ESQUERDA === */
+.left-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  padding-bottom: 32px;
+}
+
+/* avatar grande circular com anel branco */
+.left-card .avatar-wrap {
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  background: #fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  border: 8px solid var(--card);
+  box-sizing: content-box;
+}
+
+.left-card .avatar-wrap img {
+  width: 92%;
+  height: 92%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* nickname centralizado abaixo do avatar e risca branca */
+.nickname {
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: #fff;
+  margin-top: 4px;
+  position: relative;
+  padding-bottom: 12px;
+}
+
+.nickname::after {
+  content: "";
+  position: absolute;
+  left: 12%;
+  right: 12%;
+  bottom: 0;
+  height: 4px;
+  background: #fff;
+  border-radius: 2px;
+  opacity: 0.95;
+}
+
+/* frase/quote estilo itálico */
+.quote {
+  font-style: italic;
+  color: var(--muted);
+  text-align: center;
+  line-height: 1.4;
+  margin: 18px 10px;
+}
+
+/* box de gêneros (laranja grande com cantos arredondados) */
+.genres {
+  width: 100%;
+  background: var(--accent);
+  color: var(--card);
+  border-radius: 20px;
+  padding: 18px;
+  box-sizing: border-box;
+}
+
+.genres h4 {
+  color: #fff;
+  margin-bottom: 14px;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+/* grid interno para tags */
+.genre-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.genre {
+  background: var(--card);
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 26px;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* === COLUNA CENTRAL === */
+.center-top {
+  margin-bottom: 18px;
+}
+
+/* bio card alto (semelhante ao mockup: título no canto superior) */
+.bio-card {
+  background: var(--card);
+  border-radius: 22px;
+  padding: 22px;
+  min-height: 120px;
+}
+
+.bio-card h3 {
+  color: #fff;
+  font-size: 1.15rem;
+  margin-bottom: 8px;
+}
+
+/* box grande de 'Estéticas do mês' - laranja interno com cantos arredondados */
+.aesthetics {
+  margin-top: 18px;
+  background: var(--card);
+  padding: 20px;
+  border-radius: 22px;
+}
+
+.aesthetics .box {
+  background: var(--accent);
+  border-radius: 28px;
+  height: 360px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color: var(--card);
+  position: relative;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+/* setas circulares dentro da caixa */
+.aesthetics .arrow {
+  position:absolute;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.85);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color: rgba(255,255,255,0.95);
+  background: transparent;
+  cursor: pointer;
+}
+
+.aesthetics .arrow.left { left: 22px; top: 50%; transform: translateY(-50%); }
+.aesthetics .arrow.right { right: 22px; top: 50%; transform: translateY(-50%); }
+
+/* === COLUNA DIREITA === */
+/* caixas empilhadas parecidas com o mockup: fundo laranja dentro do card escuro */
+.right-stack {
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
+
+.stack-item {
+  background: var(--card);
+  border-radius: 22px;
+  padding: 16px;
+}
+
+.stack-item .inner {
+  background: var(--accent);
+  border-radius: 18px;
+  height: 160px;
+}
+
+/* um tamanho menor para o último (emblemas) */
+.stack-item.small .inner {
+  height: 110px;
+}
+
+/* título branco no topo de cada box */
+.stack-item h4 {
+  color: #fff;
+  margin-bottom: 12px;
+}
+
+/* ==== TIPOGRAFIA E AJUSTES ==== */
+.col-card h4 {
+  color: #fff;
+  margin: 0 0 12px 0;
+  font-weight: 700;
+}
+
+
+
+/* responsividade */
+@media (max-width: 1100px) {
+  .profile-grid {
+    grid-template-columns: 1fr;
+  }
+  .aesthetics .box { height: 260px; }
+  .left-card .avatar-wrap { width: 140px; height: 140px; }
+}
+
+@media (max-width: 720px) {
+  .genre-list { grid-template-columns: 1fr 1fr; }
+  .left-card .avatar-wrap { width: 120px; height: 120px; }
+  .aesthetics .box { height: 200px; }
+}
+
+
+/* Ajuste da estética do mês */
+.aesthetic-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 28px;
+}
+
+/* === Filmes recentes === */
+.filmes-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  border-radius: 18px;
+  padding: 10px;
+}
+
+.filme-poster {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.filme-poster:hover {
+  transform: scale(1.05);
+}
+
+/* === MODAL RESPONSIVO COM SCROLL VERTICAL E ZOOM SUAVE === */
+.image-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.image-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.image-modal-content {
+  position: relative;
+  max-width: 95vw;       /* largura máxima do container */
+  max-height: 95vh;      /* altura máxima do container */
+  display: flex;
+  justify-content: center; /* centraliza horizontalmente */
+  align-items: flex-start; /* começa do topo para scroll vertical */
+  overflow-y: auto;        /* permite scroll vertical */
+  overflow-x: hidden;      /* impede scroll horizontal */
+  padding: 10px 0;         /* espaço superior e inferior */
+}
+
+.image-modal-content img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;     /* limita largura para caber na tela */
+  max-height: none;    /* altura pode ultrapassar container */
+  margin: 0 auto;      /* centraliza horizontalmente */
+  border-radius: 10px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+
+  /* animação de abertura */
+  transform: scale(0.85);
+  opacity: 0;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
+}
+
+.image-modal.active img {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* Botão de fechar */
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+  transition: transform 0.2s ease;
+}
+
+.close-modal:hover {
+  transform: scale(1.1);
+}
+
+/* Responsividade extra para telas pequenas */
+@media (max-width: 600px) {
+  .image-modal-content {
+    max-width: 90vw;
+    max-height: 90vh;
+  }
 }
 
 
