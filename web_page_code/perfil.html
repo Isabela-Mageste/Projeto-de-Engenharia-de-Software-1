@@ -1,58 +1,70 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Perfil - Absolute Cinema</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perfil do Usuário</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-  <!-- NAVBAR -->
-  <header class="navbar">
-    <div class="nav-left">
-      <i class="fa-solid fa-bars" id="menu-toggle"></i>
-      <i class="fa-solid fa-magnifying-glass"></i>
-    </div>
-    <div class="nav-center">
-      <i class="fa-solid fa-clapperboard"></i>
-      <i class="fa-solid fa-heart"></i>
-      <i class="fa-solid fa-music"></i>
-    </div>
-    <div class="nav-right">
-      <i class="fa-solid fa-user"></i>
-    </div>
-  </header>
+  <!-- 🔒 Verificação de login -->
+  <script>
+    const usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado"));
+    if (!usuarioLogado) {
+      alert("Você precisa fazer login para acessar esta página!");
+      window.location.href = "login.html";
+    }
+  </script>
 
-  <!-- SIDEBAR -->
-  <aside class="sidebar" id="sidebar">
-    <nav class="sidebar-menu">
-      <a href="home_video.html" class="sidebar-item"><i class="fa-solid fa-house"></i> Início</a>
-      <a href="#" class="sidebar-item"><i class="fa-solid fa-users"></i> Social</a>
-      <a href="#" class="sidebar-item"><i class="fa-solid fa-gamepad"></i> Games</a>
-      <a href="perfil.html" class="sidebar-item active"><i class="fa-solid fa-user"></i> Perfil</a>
-    </nav>
-
-    <div class="sidebar-divider"></div>
-
-    <div class="theme-switch">
-      <label for="darkModeToggle">Modo Escuro</label>
-      <input id="darkModeToggle" class="l" type="checkbox" />
+  <!-- Conteúdo do perfil -->
+  <div class="perfil-container">
+    <div class="perfil-header">
+      <img id="fotoPerfil" src="" alt="Foto do usuário" class="foto-perfil" />
+      <h1 id="nomePerfil"></h1>
+      <h2 id="cargoPerfil"></h2>
+      <p id="descricaoPerfil"></p>
     </div>
 
-    <div class="avatar-box"></div>
-  </aside>
+    <div class="estetica-section">
+      <h3>Estética do Mês</h3>
+      <img id="esteticaMes" src="" alt="Imagem estética do mês" />
+    </div>
 
-  <div class="overlay" id="overlay"></div>
+    <div class="filmes-section">
+      <h3>Filmes Recentes</h3>
+      <div id="filmesContainer" class="filmes-container"></div>
+    </div>
 
-  <!-- CONTEÚDO PRINCIPAL -->
-  <main id="profile"></main>
+    <button id="logout" class="logout-btn">Sair</button>
+  </div>
 
-  <footer>
-    <p>© 2025 Absolute Cinema - Todos os direitos reservados.</p>
-  </footer>
+  <!-- Script de carregamento dos dados -->
+  <script>
+    // Carrega os dados do usuário logado
+    const user = usuarioLogado;
 
-  <script src="script-perfil.js"></script>
+    if (user) {
+      document.getElementById("fotoPerfil").src = user.foto;
+      document.getElementById("nomePerfil").textContent = user.nome;
+      document.getElementById("cargoPerfil").textContent = user.cargo;
+      document.getElementById("descricaoPerfil").textContent = user.descricao;
+      document.getElementById("esteticaMes").src = user.estetica_mes;
+
+      const filmesContainer = document.getElementById("filmesContainer");
+      user.filmes_recentes.forEach(filme => {
+        const img = document.createElement("img");
+        img.src = filme;
+        img.alt = "Filme recente";
+        filmesContainer.appendChild(img);
+      });
+    }
+
+    // Botão de sair
+    document.getElementById("logout").addEventListener("click", () => {
+      localStorage.removeItem("usuarioLogado");
+      window.location.href = "login.html";
+    });
+  </script>
 </body>
 </html>

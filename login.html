@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* LOGIN */
+    .login-container {
+      background-color: #3b3b3b;
+      padding: 60px 50px;
+      border-radius: 22px;
+      color: white;
+      width: 400px;
+      max-width: 90%;
+      text-align: center;
+      margin: 100px auto;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    }
+
+    .login-container h2 {
+      color: #df834a;
+      margin-bottom: 30px;
+      font-size: 2rem;
+    }
+
+    .login-container input {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 20px;
+      border-radius: 12px;
+      border: none;
+      font-size: 1rem;
+      background-color: #2f2f2f;
+      color: white;
+    }
+
+    .login-container input::placeholder {
+      color: #cfcfcf;
+    }
+
+    .login-container button {
+      width: 100%;
+      padding: 14px;
+      border-radius: 12px;
+      border: none;
+      background-color:  #df834a;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: transform 0.2s;
+    }
+
+    .login-container button:hover {
+      transform: scale(1.05);
+    }
+
+    .error {
+      color: #ff6b6b;   
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Login</h2>
+    <div class="error" id="error"></div>
+    <input type="text" id="username" placeholder="Usuário" required>
+    <input type="password" id="password" placeholder="Senha" required>
+    <button id="loginBtn"><a href="perfil.html", style="text-decoration: none; color:#2f2f2f">Entrar</a></button>
+  </div>
+
+  <script>
+    const loginBtn = document.getElementById('loginBtn');
+    const errorDiv = document.getElementById('error');
+
+
+    loginBtn.addEventListener('click', () => {
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value.trim();
+
+      if(username === userDB.username && password === userDB.password) {
+        localStorage.setItem('loggedUser', JSON.stringify({username}));
+        window.location.href = 'perfil.html';
+      } else {
+        errorDiv.textContent = "Usuário ou senha incorretos!";
+      }
+    });
+
+    window.addEventListener('load', () => {
+      if(localStorage.getItem('loggedUser')) {
+        window.location.href = 'perfil.html';
+      }
+    });
+  </script>
+</body>
+</html>
