@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perfil Social - Absolute Cinema</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* ================== PERFIL SOCIAL ================== */
+    .profile-page { max-width: 1400px; margin: 40px auto; padding: 0 20px; display: grid; grid-template-columns: 280px 1fr 280px; gap: 20px; }
+
+    /* COLUNA ESQUERDA */
+    .left-column { background: var(--card-2); border-radius: 20px; padding: 20px; color: white; display: flex; flex-direction: column; gap: 20px; }
+    .left-column h3 { margin-bottom: 10px; font-size: 1.2rem; }
+    .groups-list { display: flex; flex-direction: column; gap: 10px; }
+    .groups-list div { background: #df834a; padding: 10px; border-radius: 12px; font-weight: 600; cursor: pointer; }
+
+    /* COLUNA CENTRAL */
+    .center-column { display: flex; flex-direction: column; gap: 20px; }
+    .post-card { background:  #3b3b3b; border-radius: 20px; padding: 16px; display: flex; flex-direction: column; gap: 10px; }
+    .post-header { display: flex; align-items: center; gap: 10px; }
+    .post-header img { width: 40px; height: 40px; border-radius: 50%; }
+    .post-header .user-info { display: flex; flex-direction: column; }
+    .post-header .user-info span { font-size: 0.85rem; color:  #cfcfcf; }
+    .post-content { background: #df834a; border-radius: 12px; padding: 15px; min-height: 120px; display: flex; align-items: center; justify-content: center; color:  #3b3b3b; font-weight: 600; text-align: center; }
+    .post-small { display: flex; gap: 10px; }
+    .post-small img { width: 80px; height: 80px; border-radius: 12px; object-fit: cover; }
+
+    /* COLUNA DIREITA */
+    .right-column { display: flex; flex-direction: column; gap: 20px; }
+    .popular-card { background:  #3b3b3b; border-radius: 20px; display: flex; overflow: hidden; }
+    .popular-card img { width: 80px; height: 80px; object-fit: cover; }
+    .popular-info { background: #df834a; padding: 10px; display: flex; flex-direction: column; justify-content: center; color:  #3b3b3b; flex: 1; }
+
+    @media(max-width: 1100px) { .profile-page { grid-template-columns: 1fr; } .right-column { flex-direction: row; overflow-x: auto; } }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="nav-left"><i class="fa-solid fa-bars" id="menu-toggle"></i></div>
+    <div class="nav-center"><i class="fa-solid fa-clapperboard"></i> <i class="fa-solid fa-heart"></i></div>
+    <div class="nav-right"><i class="fa-solid fa-user"></i></div>
+  </header>
+
+  <aside class="sidebar" id="sidebar">
+    <nav class="sidebar-menu">
+      <a href="#" class="sidebar-item"><i class="fa-solid fa-house"></i> Página Inicial</a>
+      <a href="#" class="sidebar-item"><i class="fa-solid fa-magnifying-glass"></i> Procura</a>
+      <a href="#" class="sidebar-item"><i class="fa-solid fa-bell"></i> Notificações</a>
+      <a href="#" class="sidebar-item"><i class="fa-solid fa-users"></i> Grupos</a>
+      <a href="#" class="sidebar-item"><i class="fa-solid fa-user"></i> Perfil</a>
+    </nav>
+  </aside>
+  <div class="overlay" id="overlay"></div>
+
+  <main class="profile-page">
+    <!-- COLUNA ESQUERDA -->
+    <div class="left-column">
+      <h3>Grupos Recentes</h3>
+      <div class="groups-list">
+        <div>Grupo 1</div>
+        <div>Grupo 2</div>
+        <div>Grupo 3</div>
+      </div>
+    </div>
+
+    <!-- COLUNA CENTRAL -->
+    <div class="center-column">
+      <div class="post-card">
+        <div class="post-header">
+          <img src="https://via.placeholder.com/40" alt="Avatar">
+          <div class="user-info">
+            <strong>Nome</strong>
+            <span>@nickname</span>
+          </div>
+        </div>
+        <div class="post-content">Video sobre o filme</div>
+        <div class="post-small">
+          <img src="https://via.placeholder.com/80" alt="Poster">
+          <div>Nome do filme <br> Sinopse</div>
+        </div>
+      </div>
+
+      <div class="post-card">
+        <div class="post-header">
+          <img src="https://via.placeholder.com/40" alt="Avatar">
+          <div class="user-info">
+            <strong>Nome</strong>
+            <span>@nickname</span>
+          </div>
+        </div>
+        <div class="post-content">Comentário/recomendação de filme</div>
+      </div>
+
+      <div class="post-card">
+        <div class="post-header">
+          <img src="https://via.placeholder.com/40" alt="Avatar">
+          <div class="user-info">
+            <strong>Nome</strong>
+            <span>@nickname</span>
+          </div>
+        </div>
+        <div class="post-content post-small">
+          <img src="https://via.placeholder.com/80" alt="Poster">
+          Foto na estreia de um filme
+        </div>
+      </div>
+    </div>
+
+    <!-- COLUNA DIREITA -->
+    <div class="right-column">
+      <div class="popular-card">
+        <img src="https://via.placeholder.com/80" alt="Poster">
+        <div class="popular-info">
+          <strong>Nome do filme</strong>
+          <span>Sinopse</span>
+        </div>
+      </div>
+      <div class="popular-card">
+        <img src="https://via.placeholder.com/80" alt="Poster">
+        <div class="popular-info">
+          <strong>Nome do filme</strong>
+          <span>Sinopse</span>
+        </div>
+      </div>
+      <div class="popular-card">
+        <img src="https://via.placeholder.com/80" alt="Poster">
+        <div class="popular-info">
+          <strong>Nome do filme</strong>
+          <span>Sinopse</span>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

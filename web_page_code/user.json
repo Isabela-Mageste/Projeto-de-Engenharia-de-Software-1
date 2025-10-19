@@ -7,5 +7,15 @@
   "filmes_recentes": [
     "https://i.pinimg.com/736x/39/9b/83/399b83aa72375e3e8aad65b57656f646.jpg",
     "https://i.pinimg.com/736x/93/c4/48/93c4481951dfb924ae8881e681f4a28b.jpg"
+  ],
+  "amigos": [
+    { "nome": "Maria Lopes", "foto": "https://i.pinimg.com/736x/cd/f9/78/cdf97886f86b61892f2d7c8704b9b224.jpg" },
+    { "nome": "Eduardo Pires", "foto": "https://i.pinimg.com/736x/76/7b/78/767b78e90678f4dbfe20be71e51e2b40.jpg" },
+    { "nome": "Carla Souza", "foto": "https://i.pinimg.com/736x/42/03/37/42033722deefe4f5e249107f56e26cbe.jpg" }
+  ],
+  "emblemas": [
+    { "titulo": "Antisocial Social Club", "imagem": "https://i.pinimg.com/736x/c3/c2/38/c3c238d45a9b0118443a52b59c854cc0.jpg" },
+    { "titulo": "ET Bilu - Busque Conhecimento", "imagem": "https://i.pinimg.com/736x/0e/84/90/0e8490bc8aee5409d0be54f12c986754.jpg" },
+    { "titulo": "Uau o dinussauru", "imagem": "https://i.pinimg.com/736x/ed/56/1b/ed561b26d187a7de355aa347becd591a.jpg" }
   ]
 }

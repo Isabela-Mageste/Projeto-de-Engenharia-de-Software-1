@@ -1067,6 +1067,303 @@ body {
   display: none;
 }
 
+/* === HOME MUSIC === */
+#music-home {
+  margin: 30px auto 140px; /* espaço para o player */
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.music-section {
+  background-color: var(--accent);
+  border-radius: 25px;
+  padding: 25px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.music-section h2 {
+  font-size: 1.6rem;
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+.music-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 20px;
+}
+
+.music-card {
+  background-color: var(--primary);
+  border-radius: 20px;
+  overflow: hidden;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.music-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.music-card img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+}
+
+.music-card h4 {
+  font-size: 1rem;
+  margin-top: 8px;
+}
+
+.music-card p {
+  font-size: 0.85rem;
+  opacity: 0.8;
+  margin-bottom: 10px;
+}
+
+/* === CATEGORIAS DINÂMICAS === */
+#categorias {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.categoria {
+  background-color: var(--accent);
+  border-radius: 25px;
+  padding: 20px;
+}
+
+.categoria h3 {
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.categoria-linha {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding: 10px 0;
+}
+
+.categoria-linha::-webkit-scrollbar {
+  display: none;
+}
+
+/* === PLAYER INFERIOR === */
+.music-player {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background-color: var(--primary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 25px;
+  z-index: 1000;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.3);
+}
+
+/* Mini capa da música */
+.music-player img {
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.music-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 10px;
+  max-width: 250px;
+  overflow: hidden;
+}
+
+.music-info h4,
+.music-info p {
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}
+
+.music-info h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.music-info p {
+  font-size: 0.85rem;
+  opacity: 0.8;
+  margin-top: 2px;
+}
+
+
+/* Área dos botões centrais */
+.player-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+/* Controles principais */
+.player-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  margin-bottom: 6px;
+}
+
+.player-controls button {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.player-controls button:hover {
+  transform: scale(1.15);
+}
+
+/* Barra de progresso */
+.progress-area {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 380px;
+  max-width: 90%;
+}
+
+.progress-area span {
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+.progress-bar {
+  flex: 1;
+  height: 4px;
+  background-color: #fff4;
+  border-radius: 10px;
+  position: relative;
+}
+
+.progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 25%;
+  background-color: var(--accent);
+  border-radius: 10px;
+}
+
+/* Ícones da direita */
+.extra-controls {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.extra-controls i {
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.extra-controls input[type="range"] {
+  width: 80px;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+/* === NAVBAR LATERAL FIXA (MÚSICA) === */
+.fixed-left-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 100%;
+  background-color: var(--primary);
+  padding: 80px 15px 20px; /* espaço para não colidir com a navbar superior */
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 500; /* menor que a sidebar (z-index 1000) */
+}
+
+.fixed-left-navbar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.fixed-left-navbar .nav-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  padding: 10px 12px;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.fixed-left-navbar .nav-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.fixed-left-navbar i {
+  width: 20px;
+}
+
+.fixed-left-navbar .playlist-lista {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Mas a sidebar original continua sobrepondo quando aberta */
+.sidebar {
+  z-index: 1000; /* já existe, apenas garantindo sobreposição */
+}
+
+/* Ajuste para a navbar do topo ficar por cima e ocupar 100% */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1100; /* maior que a sidebar (1000) e maior que a navbar lateral (500) */
+}
+
+/* Compensa a altura da navbar no conteúdo */
+body {
+  margin-top: 70px; /* ajuste conforme a altura da navbar */
+  margin-left: 200px; /* mantém o deslocamento da navbar lateral */
+}
+
 
 /* RESPONSIVO */
 @media (max-width: 768px) {
