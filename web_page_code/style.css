@@ -1419,3 +1419,174 @@ body.dark-mode .media-placeholder {
         margin-right: 0;
     }
 }
+
+
+/* --- SEÇÂO JOGOS --- */
+:root {
+
+    --text-dark: var(--primary); 
+    --secondary: #555555; /* Cor secundária escura para contraste de fundo */
+    --jogos-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+    --jogos-transition: 0.3s ease-in-out;
+}
+
+.container {
+    display: flex;
+    max-width: 1200px;
+    margin: 20px auto; 
+    padding: 0 15px;
+    gap: 20px;
+    flex-direction: column; 
+    min-height: 80vh; 
+}
+
+.jogos-column {
+    flex: 1 1 100%;
+    min-width: 0;
+    /* Garante que o texto seja claro sobre o fundo escuro das colunas */
+    color: var(--text-light); 
+}
+
+.jogos-left-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* --- SEÇÕES DE ESTATÍSTICAS E INSÍGNIAS (COLUNA ESQUERDA) --- */
+
+.jogos-section {
+    background-color: var(--primary);
+    border-radius: 8px;
+    box-shadow: var(--jogos-shadow);
+    padding: 0; 
+}
+
+.jogos-stat-header {
+    padding: 10px 15px;
+    font-weight: bold;
+    font-size: 1.1em;
+    text-transform: uppercase;
+    border-radius: 8px 8px 0 0;
+    text-align: center;
+    color: var(--text-light); 
+}
+
+/* Estilos para as Barras de Gênero */
+.jogos-genre-bar-container {
+    padding: 10px 15px 0 15px;
+}
+
+.jogos-genre-label {
+    font-size: 0.9em;
+    margin-bottom: 5px;
+    color: var(--text-light);
+}
+
+.jogos-bar-wrapper {
+    height: 15px;
+    border-radius: 8px;
+    background-color: var(--secondary);
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.jogos-genre-bar {
+    height: 100%;
+    transition: width 1s ease-out;
+}
+
+/* Estilos para a Seção de Insígnias */
+.jogos-badges-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+    gap: 15px;
+    padding: 15px;
+}
+
+.jogos-badge-item {
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    background-color: var(--secondary); 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.jogos-badge-icon {
+    font-size: 2em;
+}
+
+/* --- SEÇÃO DE PERFIS (COLUNA DIREITA) --- */
+
+.jogos-profiles-column {
+    padding: 15px;
+    background-color: var(--primary);
+    border-radius: 8px;
+    box-shadow: var(--jogos-shadow);
+}
+
+.jogos-profile-card {
+    display: flex;
+    align-items: center;
+    background-color: var(--secondary);
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    gap: 15px;
+    box-shadow: var(--jogos-shadow);
+}
+
+.jogos-profile-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.jogos-profile-name-box {
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.9em;
+    line-height: 1; 
+}
+
+.jogos-profile-badges-grid {
+    display: flex;
+    gap: 5px;
+    margin-left: auto; 
+}
+
+.jogos-profile-badge-item {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary); 
+    border: 2px solid var(--accent); 
+}
+
+.jogos-profile-badge-icon {
+    font-size: 0.8em;
+}
+
+/* --- MEDIA QUERY PARA LAYOUT DESKTOP --- */
+
+@media (min-width: 768px) {
+    .container {
+        flex-direction: row; 
+    }
+
+    .jogos-left-column {
+        max-width: 300px;
+        flex: none;
+    }
+
+    .jogos-profiles-column {
+        flex: 1;
+    }
+}
