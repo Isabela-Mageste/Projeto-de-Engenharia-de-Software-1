@@ -1,5 +1,5 @@
 /* =======================================================
-   JOGOS STYLES (Copia de Estilos Base + Estilos de Perfil)
+   JOGOS STYLES (CORRIGIDO)
    ======================================================= */
 
 /* --- CÓPIA DO CÓDIGO CSS PRINCIPAL --- */
@@ -9,9 +9,12 @@
   --primary: #3b3b3b;
   --accent: #df834a;
   
-  /* Variáveis de apoio para o layout do perfil */
-  --text-light: white; /* Definido para dar contraste sobre o primary/secondary */
+  /* NOVAS VARIÁVEIS DE COR PARA CONTRASTE */
+  --text-light: white; 
+  --text-dark: var(--primary); /* Texto escuro para fundo claro */
   --secondary: #555555; /* Cor secundária escura para contraste de fundo */
+  
+  /* Variáveis de apoio para o layout do perfil */
   --jogos-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
   --jogos-transition: 0.3s ease-in-out;
 }
@@ -25,8 +28,9 @@
 
 body {
   background-color: var(--bg);
-  color: var(--text-light); /* Alterado para usar uma variável mais consistente */
-  padding-top: 50px; /* Adicionado para compensar a navbar fixa */
+  /* CORREÇÃO AQUI: Usa cor escura para o texto no fundo claro */
+  color: var(--text-dark); 
+  padding-top: 50px; 
   transition: background-color var(--jogos-transition);
 }
 
@@ -38,7 +42,7 @@ body {
   background-color: var(--primary);
   padding: 10px 20px;
   font-size: 1.5rem;
-  position: fixed; /* Adicionado para garantir que fique no topo */
+  position: fixed; 
   top: 0;
   width: 100%;
   z-index: 1000;
@@ -64,7 +68,25 @@ body {
   transition: 0.2s ease;
 }
 
-/* DESTAQUE (MANTIDO CASO SEJA USADO NA PÁGINA DE JOGOS) */
+/* SIDEBAR (CORREÇÃO DE LAYOUT) */
+.sidebar {
+    /* CORREÇÃO AQUI: Garante que a sidebar comece oculta e fixa */
+    position: fixed;
+    top: 50px; 
+    left: -250px; /* Esconde fora da tela */
+    width: 250px;
+    height: calc(100% - 50px);
+    background-color: var(--primary); /* Fundo escuro para a sidebar */
+    z-index: 999;
+    transition: left var(--jogos-transition);
+}
+.sidebar.active {
+    left: 0; /* JS adiciona esta classe para mostrar */
+}
+/* Estilos da sidebar menu etc. devem estar aqui, se foram copiados do original. */
+
+
+/* DESTAQUE */
 .highlight {
   background-color: var(--primary);
   margin: 20px auto;
@@ -77,7 +99,7 @@ body {
   align-items: center;
   justify-content: center;
 }
-/* ... (demais estilos .highlight, .highlight-content, etc. omitidos por brevidade, mas devem ser copiados) ... */
+/* ... (demais estilos .highlight, .highlight-content, etc. omitidos) ... */
 
 /* --- FIM DA CÓPIA DO CÓDIGO CSS PRINCIPAL --- */
 
@@ -101,6 +123,9 @@ body {
 .jogos-column {
     flex: 1 1 100%;
     min-width: 0;
+    /* CORREÇÃO DE COR: O conteúdo interno das colunas é escuro, 
+       mas o texto deve ser claro (var(--text-light)) para contraste */
+    color: var(--text-light); 
 }
 
 .jogos-left-column {
@@ -230,14 +255,7 @@ body {
     font-size: 0.8em;
 }
 
-/* --- AJUSTES DA SIDEBAR E RESPONSIVIDADE --- */
-
-/* Alinha a sidebar abaixo da navbar fixa */
-.sidebar {
-    top: 50px; 
-    height: calc(100% - 50px);
-    transition: left var(--jogos-transition);
-}
+/* --- MEDIA QUERY PARA LAYOUT DESKTOP --- */
 
 @media (min-width: 768px) {
     .container {
