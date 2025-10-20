@@ -1459,7 +1459,7 @@ body.dark-mode .media-placeholder {
     background-color: var(--primary);
     border-radius: 8px;
     box-shadow: var(--jogos-shadow);
-    padding: 0; 
+
 }
 
 .jogos-stat-header {
